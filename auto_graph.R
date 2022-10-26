@@ -2,10 +2,7 @@ library(ggplot2)
 
 reg_3_data <- read.csv2(file = "C:/The_Kara_Sea_project/data/region_3.csv")
 
-
-reg_3_data$factor_horizon <- as.factor(reg_3_data$Depth)
-
-for(x in levels(reg_3_data$factor_horizon)) {
+for(x in levels(as.factor(reg_3_data$Depth))) {
   ggplot(reg_3_data[reg_3_data$factor_horizon == x, ], aes(Year, pH)) +
     geom_line(color = "blue", size = 0.1) +
     geom_point(color = "red") +
